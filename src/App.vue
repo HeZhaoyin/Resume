@@ -13,6 +13,7 @@
 
 <script>
 import Prism from 'prismjs'
+import marked from 'marked'
 export default {
   name: 'app',
   data(){

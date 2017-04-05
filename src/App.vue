@@ -155,7 +155,7 @@ finalResumeCode:`
 			  var n = 0;
 			  var resumeCodeLen = this.finalResumeCode.length;
 			  var timer = setInterval(()=>{
-				  this.resumeCode = this.finalResumeCode.substring(0,n);
+				  this.resumeCode = marked(this.finalResumeCode.substring(0,n));
 				//   this.$nextTick(()=>{
 				// 	  this.$refs.resumeBox.scrollTop = 100000;
 				//   })

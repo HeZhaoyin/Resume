@@ -156,9 +156,9 @@ finalResumeCode:`
 			  var resumeCodeLen = this.finalResumeCode.length;
 			  var timer = setInterval(()=>{
 				  this.resumeCode = marked(this.finalResumeCode.substring(0,n));
-				//   this.$nextTick(()=>{
-				// 	  this.$refs.resumeBox.scrollTop = 100000;
-				//   })
+				  this.$nextTick(()=>{
+					  this.$refs.resumeBox.scrollTop = 100000;
+				  })
 				  if (n === resumeCodeLen) {
 					  clearInterval(timer);
 					  resolve();
@@ -190,5 +190,8 @@ finalResumeCode:`
 }
 .resume{
 	white-space: pre-wrap;
+}
+div{
+	overflow: auto;
 }
 </style>

@@ -4,7 +4,7 @@
 			<pre v-html="highlightedCode">{{styleCode}}</pre>
 		</div>
 		<div class="resume" ref="resumeBox">
-			<pre>{{resumeCode}}</pre>
+			<div v-html="resumeCode"></div>
 		</div>
 	    <div v-html="writeStyleCode">
 	    </div>

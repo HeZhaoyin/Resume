@@ -4,7 +4,7 @@
 			<pre v-html="highlightedCode">{{styleCode}}</pre>
 		</div>
 		<div class="resume" ref="resumeBox">
-			<div v-html="resumeCode"></div>
+			<div v-html="resumeCodeResult"></div>
 		</div>
 	    <div v-html="writeStyleCode">
 	    </div>
@@ -18,6 +18,7 @@ export default {
   name: 'app',
   data(){
 	  return {
+		  isMarked:false,
 		  styleCode:``,
 		  finalStyleCode:`
 /*大家好，我是何兆殷
@@ -40,22 +41,15 @@ body{
 }
 /*文字距离旁边好像有点太近了，我来调一下*/
 .content{
-  width:40vw;
-  height:70vh;
+  width:45vw;
+  height:80vh;
   margin-top:40px;
   margin-left:20px;
   padding-left:20px;
   border:1px solid #fff;
   overflow:auto;
 }
-/*加个3D效果好了*/
-body{
-  perspective:800px;
-}
-.content{
-  transform-origin:left;
-  transform:rotateY(5deg);
-}
+
 /*设置一个代码高亮*/
 .token.selector{
   color: rgb(133,153,0);
@@ -68,6 +62,15 @@ body{
 }
 .token.function{
   color: rgb(42,161,152);
+}
+
+/*加个3D效果好了*/
+body{
+  perspective:800px;
+}
+.content{
+  transform-origin:left;
+  transform:rotateY(5deg);
 }
 
 /*我来准备一下简历的版面*/
@@ -88,7 +91,6 @@ finalResumeCode:`
 # 何兆殷的简历
 
 ---
-
 
 # 联系方式
 
@@ -121,6 +123,10 @@ finalResumeCode:`
 - 数据库相关：MySQL/MSSQL
 - 版本管理、文档和自动化部署工具：Svn/Git
 `,
+continueStyleCode:`
+/*对了，我的简历是用MarkDown做的，让我来用插件转换成html格式吧*/
+
+`
 	  }
   },
   created(){
@@ -130,6 +136,7 @@ finalResumeCode:`
 	  writeResume: async function(){
 		  await this.showStyleCode();
 		  await this.showResumeCode();
+		  await this.markedIt();
 		  console.log('ok');
 	  },
 	  showStyleCode(){
@@ -147,7 +154,7 @@ finalResumeCode:`
 				  }else{
   				  	  n++;
 				  }
-			  },15)
+			  },10)
 		  })
 	  },
 	  showResumeCode(){
@@ -155,7 +162,7 @@ finalResumeCode:`
 			  var n = 0;
 			  var resumeCodeLen = this.finalResumeCode.length;
 			  var timer = setInterval(()=>{
-				  this.resumeCode = marked(this.finalResumeCode.substring(0,n));
+				  this.resumeCode = this.finalResumeCode.substring(0,n);
 				  this.$nextTick(()=>{
 					  this.$refs.resumeBox.scrollTop = 100000;
 				  })
@@ -163,10 +170,25 @@ finalResumeCode:`
 					  clearInterval(timer);
 					  resolve();
 				  }else{
-						  n++;
+					  n++;
 				  }
-			  },30)
+			  },10)
 		  })
+	  },
+	  markedIt(){
+		  var len = this.continueStyleCode.length;
+		  var n = 0;
+		  var timer = setInterval(()=>{
+			  this.styleCode = this.styleCode + this.continueStyleCode.substring(n-1,n);
+			  this.$nextTick(()=>{
+				  this.$refs.content.scrollTop = 100000;
+			  });
+			  if (n>=len) {
+				  clearInterval(timer);
+				  this.isMarked = true;
+			  }
+			  n++;
+		  },20);
 	  }
   },
   computed:{
@@ -175,6 +197,9 @@ finalResumeCode:`
 	  },
 	  writeStyleCode(){
 		  return '<style>' + this.styleCode + '</style>';
+	  },
+	  resumeCodeResult(){
+		  return this.isMarked?marked(this.resumeCode):this.resumeCode;
 	  }
   }
 }

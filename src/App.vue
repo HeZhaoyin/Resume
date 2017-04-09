@@ -83,40 +83,30 @@ body{
   padding:20px;
   background:#fff;
   color:#000;
+  font-size: 14px;
 }
 /*好，我开始写简历了.....*/
 `,
 resumeCode:'',
-finalResumeCode:`
-# 何兆殷的简历
-
+finalResumeCode:`## 何兆殷的简历
 ---
-
-# 联系方式
-
+联系方式
 - 手机：15521040565
 - Email：2561033753@qq.com
 - QQ/微信号：2561033753 / Monster679914
-
 ---
-
-# 个人信息
-
+个人信息
  - 何兆殷/男/1994
  - 本科/广州大学华软软件学院软件工程系
  - 工作年限：1年
  - 技术博客：http://www.echobunny.com
  - Github: [BunnyWithYou](https://github.com/BunnyWithYou/)
-
  - 期望职位：Web前端工程师
  - 期望薪资：税前月薪10k~15k
  - 期望城市：广州
-
 ---
-
-# 技能清单
+技能清单
 以下均为我熟练使用的技能
-
 - Web开发：CSS/HTML/JavaScript
 - 前端框架：Bootstrap/AngularJS/Vue/HTML5/
 - 前端工具：Webpack
@@ -125,7 +115,6 @@ finalResumeCode:`
 `,
 continueStyleCode:`
 /*对了，我的简历是用MarkDown做的，让我来用插件转换成html格式吧*/
-
 `
 	  }
   },

@@ -1,3 +1,5 @@
+[预览](https://bunnywithyou.github.io/Resume/dist/)
+
 # resume
 
 > Hezhaoyin's resume

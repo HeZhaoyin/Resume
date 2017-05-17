@@ -96,22 +96,23 @@ finalResumeCode:`## 何兆殷的简历
 - QQ/微信号：2561033753 / Monster679914
 ---
 个人信息
- - 何兆殷/男/1994
+ - 何兆殷/男/24岁
  - 本科/广州大学华软软件学院软件工程系
- - 工作年限：1年
- - 技术博客：http://www.echobunny.com
+ - 工作年限：1.5年
+ - 个人主页：http://www.echobunny.com
  - Github: [BunnyWithYou](https://github.com/BunnyWithYou/)
  - 期望职位：Web前端工程师
- - 期望薪资：税前月薪10k~15k
+ - 期望薪资：税前月薪10k~13k
  - 期望城市：广州
 ---
 技能清单
 以下均为我熟练使用的技能
 - Web开发：CSS/HTML/JavaScript
-- 前端框架：Bootstrap/AngularJS/Vue/HTML5/
-- 前端工具：Webpack
+- 前端框架：Bootstrap/AngularJS/Vue/jQuery
+- 前端工具：Webpack/gulp
 - 数据库相关：MySQL/MSSQL
 - 版本管理、文档和自动化部署工具：Svn/Git
+- 后台：Node.js（了解）
 `,
 continueStyleCode:`
 /*对了，我的简历是用MarkDown做的，让我来用插件转换成html格式吧*/
@@ -143,7 +144,7 @@ continueStyleCode:`
 				  }else{
   				  	  n++;
 				  }
-			  },10)
+			  },20)
 		  })
 	  },
 	  showResumeCode(){
@@ -161,7 +162,7 @@ continueStyleCode:`
 				  }else{
 					  n++;
 				  }
-			  },10)
+			  },15)
 		  })
 	  },
 	  markedIt(){
@@ -177,7 +178,7 @@ continueStyleCode:`
 				  this.isMarked = true;
 			  }
 			  n++;
-		  },20);
+		  },30);
 	  }
   },
   computed:{
